@@ -12,6 +12,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
+@theme {
+  --font-family-mono: var(--font-fira);
+}
+
+.font-fira {
+  font-family: var(--font-fira);
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,5 +32,102 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 300;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.logo{
+  font-family: 'Comforter', cursive;
+}
+
+
+  @keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+
+  @theme {
+  --color-hero-main: #FDFCFB;
+  --color-secondary: #d4d4d8;
+  /* --color-frosted-bg:  */
+  /* D1D5DB */
+  --color-surface: #111827;
+  --color-surface-elevated: #161b27;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.2);
+  --color-accent-cyan: #22d3ee;
+  --color-accent-indigo: #6366f1;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #6b7280;
+  --color-text-dim: #4b5563;
+}
+
+
+
+@keyframes name-glow {
+  0%, 89%, 100% {
+    text-shadow: 
+      0 -2px 10px rgba(34,211,238,0.5),
+      0 -4px 20px rgba(34,211,238,0.2);
+  }
+  90% { text-shadow: none; }
+  91% { 
+    text-shadow: 
+      0 -2px 14px rgba(34,211,238,0.5),
+      0 -4px 28px rgba(34,211,238,0.2);
+  }
+  92% { text-shadow: none; }
+  93% { 
+    text-shadow: 
+      0 -2px 18px rgba(34,211,238,0.5),
+      0 -4px 36px rgba(34,211,238,0.4);
+  }
+  94% { text-shadow: none; }
+  95% { 
+    text-shadow: 
+      0 -2px 10px rgba(34,211,238,0.4),
+      0 -4px 20px rgba(34,211,238,0.1);
+  }
+}
+
+.name-glow {
+  animation: name-glow 5s ease infinite;
+}
+
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
 }
