@@ -61,7 +61,7 @@ const ExperienceMobile = ({ jobs }: Props) => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                className={`flex-shrink-0 text-secondary transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                className={`shrink-0 text-secondary transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
               >
                 <path
                   strokeLinecap="round"
@@ -80,7 +80,7 @@ const ExperienceMobile = ({ jobs }: Props) => {
                 <ul className="flex flex-col gap-3 mt-4">
                   {job.duties?.map((duty: any, i: number) => (
                     <li key={i} className="flex gap-3 items-start">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0 mt-2" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-2" />
                       <p className="text-sm text-secondary leading-relaxed">
                         {duty}
                       </p>

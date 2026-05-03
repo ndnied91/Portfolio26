@@ -55,20 +55,20 @@ const Experience = ({ resume }: Props) => {
 
       <div className="hidden md:flex flex-col md:flex-row gap-8 w-full">
         {/* left — timeline */}
-        <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible lg:w-48 flex-shrink-0 pb-2 md:pb-0 relative">
+        <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible lg:w-48 shrink-0 pb-2 md:pb-0 relative">
           {/* vertical line — desktop only */}
-          <div className="hidden md:block absolute left-[7px] top-2 bottom-2 w-px bg-white/8" />
+          <div className="hidden md:block absolute left-1.75 top-2 bottom-2 w-px bg-white/8" />
 
           {jobs.map((job, idx) => (
             <button
               key={job.order}
               onClick={() => setActiveIndex(idx)}
-              className={`flex items-start gap-3 text-left flex-shrink-0 md:flex-shrink  cursor-pointer relative transition-all duration-200
+              className={`flex items-start gap-3 text-left shrink-0 md:shrink  cursor-pointer relative transition-all duration-200
                 ${idx === activeIndex ? 'opacity-100' : 'opacity-50 hover:opacity-75'}`}
             >
               {/* dot */}
               <div
-                className={`block mt-5 w-[17px] h-[28px] cursor-pointer rounded-full flex-shrink-0 border transition-all duration-200
+                className={`block mt-5 w-4.25 h-7 cursor-pointer rounded-full shrink-0 border transition-all duration-200
                 ${
                   idx === activeIndex
                     ? 'bg-cyan-400 border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.5)]'
@@ -95,8 +95,7 @@ const Experience = ({ resume }: Props) => {
         {activeJob && (
           <div
             key={activeIndex}
-            // className="flex-1 min-w-0 pl-8 animate-fadeIn h-[500px] overflow-y-auto [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)]"
-            className="flex-1 min-w-0 pl-8 animate-fadeIn h-[500px] overflow-y-auto"
+            className="flex-1 min-w-0 pl-8 animate-fadeIn h-125 overflow-y-auto"
             style={{ borderLeft: '1px solid rgba(255,255,255,0.06)' }}
           >
             <p className="text-xl font-bold text-hero-main">
@@ -110,7 +109,7 @@ const Experience = ({ resume }: Props) => {
             <ul className="flex flex-col gap-4">
               {activeJob.duties?.map((duty: any, i: number) => (
                 <li key={i} className="flex gap-3 items-start">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0 mt-2" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-2" />
                   <p className="text-md text-secondary leading-relaxed">
                     {duty}
                   </p>

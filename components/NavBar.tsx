@@ -119,13 +119,13 @@ const Navbar = () => {
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             <span
-              className={`block h-px w-6 bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}
+              className={`block h-px w-6 bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.75' : ''}`}
             />
             <span
               className={`block h-px w-6 bg-white transition-all duration-300 ${isOpen ? 'opacity-0 -translate-x-2' : ''}`}
             />
             <span
-              className={`block h-px w-6 bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}
+              className={`block h-px w-6 bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.75' : ''}`}
             />
           </button>
         </nav>
@@ -161,7 +161,7 @@ const Navbar = () => {
           </ul>
 
           <div className="px-6 pb-4">
-            <div className="h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+            <div className="h-px bg-linear-to-r from-transparent via-cyan-400 to-transparent" />
           </div>
         </div>
       </header>

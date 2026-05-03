@@ -56,11 +56,7 @@ const Hero = () => {
           <Link
             href="#projects"
             aria-label="View Projects"
-            className="w-full sm:w-auto px-8 py-4 rounded-md bg-hero-main text-black text-base font-bold text-center
-      backdrop-blur-sm transition-all duration-300
-      hover:bg-white/90 hover:backdrop-blur-md hover:-translate-y-[2px]
-      hover:shadow-[0_8px_32px_rgba(245,245,240,0.15),0_4px_8px_rgba(0,0,0,0.3)]
-      active:translate-y-0"
+            className="w-full sm:w-auto px-8 py-4 rounded-md bg-hero-main text-black text-base font-bold text-center backdrop-blur-sm transition-all duration-300 hover:bg-white/90 hover:backdrop-blur-md hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(245,245,240,0.15),0_4px_8px_rgba(0,0,0,0.3)] active:translate-y-0"
           >
             View Projects
           </Link>
@@ -69,11 +65,7 @@ const Hero = () => {
           <Link
             href="#contact"
             aria-label="Get in touch"
-            className="w-full sm:w-auto px-8 py-4 rounded-md text-hero-main text-base font-bold text-center
-      bg-white/6 backdrop-blur-sm border border-white/10
-      transition-all duration-300
-      hover:bg-white/12 hover:border-white/25 hover:-translate-y-[2px]
-      active:translate-y-0"
+            className="w-full sm:w-auto px-8 py-4 rounded-md text-hero-main text-base font-bold text-center bg-white/6 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/12 hover:border-white/25 hover:-translate-y-0.5 active:translate-y-0"
           >
             Get in Touch
           </Link>
@@ -85,10 +77,7 @@ const Hero = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn profile"
-              className="p-4 sm:p-2 rounded-lg bg-white/5 border border-white/8 text-hero-main
-        transition-all duration-300
-        hover:bg-white/12 hover:border-white/20 hover:text-white hover:-translate-y-[2px]
-        hover:shadow-[0_4px_16px_rgba(255,255,255,0.08)]"
+              className="p-4 sm:p-2 rounded-lg bg-white/5 border border-white/8 text-hero-main transition-all duration-300 hover:bg-white/12 hover:border-white/20 hover:text-white hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(255,255,255,0.08)]"
             >
               <BsLinkedin className="w-7 h-7 sm:w-5 sm:h-5" />
             </a>
@@ -97,10 +86,7 @@ const Hero = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub profile"
-              className="p-4 sm:p-2 rounded-lg bg-white/5 border border-white/8 text-hero-main
-        transition-all duration-300
-        hover:bg-white/12 hover:border-white/20 hover:text-white hover:-translate-y-[2px]
-        hover:shadow-[0_4px_16px_rgba(255,255,255,0.08)]"
+              className="p-4 sm:p-2 rounded-lg bg-white/5 border border-white/8 text-hero-main transition-all duration-300 hover:bg-white/12 hover:border-white/20 hover:text-white hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(255,255,255,0.08)]"
             >
               <BsGithub className="w-7 h-7 sm:w-5 sm:h-5" />
             </a>

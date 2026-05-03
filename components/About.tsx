@@ -112,8 +112,7 @@ const About = ({ resume }: Props) => {
             target="_blank"
             rel="noreferrer"
             className={`inline-flex items-center gap-2 px-5 py-3 rounded-md text-hero-main text-base font-bold
-              bg-white/6 backdrop-blur-sm border border-white/10 transition-all w-fit hover:bg-white/12 hover:border-white/25 hover:-translate-y-[2px]
-              active:translate-y-0 ${
+              bg-white/6 backdrop-blur-sm border border-white/10 transition-all w-fit hover:bg-white/12 hover:border-white/25 hover:-translate-y-0.5 active:translate-y-0 ${
                 visible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-4'
