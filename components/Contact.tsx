@@ -23,7 +23,7 @@ const Contact = () => {
       {/* header */}
       <div className="mb-10 text-center">
         <h2 className="text-4xl font-bold text-white mb-3">Contact Me</h2>
-        <p className="text-zinc-400 text-md tracking-tight">
+        <p className="text-zinc-400 text-sm tracking-tight">
           Ready to bring precision and performance to your team
         </p>
       </div>
@@ -31,7 +31,7 @@ const Contact = () => {
       <div className="grid md:grid-cols-2 gap-8 w-full">
         {/* left — get in touch */}
         <div className="relative flex flex-col items-center justify-center text-center bg-[#1a2035] border border-white/8 rounded-2xl p-8 overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 to-cyan-400" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-indigo-500 to-cyan-400" />
 
           <div className="w-12 h-12 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center mb-5">
             <svg
@@ -57,7 +57,7 @@ const Contact = () => {
 
           <a
             href="mailto:danielniedzwiedzki.1@gmail.com"
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 text-white text-sm font-medium hover:opacity-90 transition-all mb-4"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-linear-to-r from-indigo-500 to-cyan-400 text-white text-sm font-medium hover:opacity-90 transition-all mb-4"
           >
             Send Email
             <FaArrowRight size={14} />
@@ -101,20 +101,20 @@ const Contact = () => {
 
         {/* right — beyond the code */}
         <div className="relative flex flex-col bg-[#1a2035] border border-white/8 rounded-2xl p-8 overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 to-cyan-400" />
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-indigo-500 to-cyan-400" />
 
           <h3 className="text-xs font-medium text-zinc-500 tracking-widest uppercase mb-4">
             Beyond the Code
           </h3>
 
           <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-            When I'm not coding I'm usually working on bikes or making fresh
-            pasta — whether it's bikes, code, or cavatelli, I believe in
-            building things from scratch with patience and precision.
+            When I&apos;m not coding I&apos;m usually working on bikes or making
+            fresh pasta — whether it&apos;s bikes, code, or cavatelli, I believe
+            in building things from scratch with patience and precision.
           </p>
 
           <p className="text-zinc-300 text-sm leading-relaxed">
-            I'm currently seeking opportunities where I can bring strong
+            I&apos;m currently seeking opportunities where I can bring strong
             technical fundamentals, a sharp eye for UX, and a collaborative
             mindset to a team that values both innovation and reliability.
           </p>
