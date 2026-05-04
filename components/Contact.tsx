@@ -53,7 +53,8 @@ const Contact = () => {
 
           <h3 className="text-xl font-medium text-white mb-1">Lets talk!</h3>
           <p className="text-zinc-400 text-sm mb-6">
-            Ready to discuss your next project?
+            Looking for an engineer to join your team? You&apos;ve come to the
+            right place.
           </p>
 
           <a

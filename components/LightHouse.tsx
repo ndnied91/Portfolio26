@@ -24,21 +24,26 @@ const LightHouse = () => {
     return () => observer.disconnect();
   }, []);
 
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
   useEffect(() => {
     if (animated) {
-      // wait for the last circle to finish animating
       const timer = setTimeout(
         () => {
-          confetti({
-            particleCount: 80,
-            spread: 60,
-            origin: { y: 0.6 },
-            colors: ['#4ade80', '#22d3ee', '#ffffff'],
-          });
+          if (canvasRef.current) {
+            const myConfetti = confetti.create(canvasRef.current, {
+              resize: true,
+            });
+            myConfetti({
+              particleCount: 80,
+              spread: 60,
+              origin: { y: 0.6 },
+              colors: ['#4ade80', '#22d3ee', '#ffffff'],
+            });
+          }
         },
         ratings.length * 200 + 1500,
-      ); // delay matches last circle animation
-
+      );
       return () => clearTimeout(timer);
     }
   }, [animated]);
@@ -94,7 +99,11 @@ const LightHouse = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center px-6 pb-20 scroll-mt-5 md:scroll-mt-0 max-w-3xl mx-auto text-center">
+    <section className="relative flex flex-col items-center justify-center px-6 pb-20 scroll-mt-5 md:scroll-mt-0 max-w-3xl mx-auto text-center">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      />
       <h2 className="text-3xl font-bold tracking-wide text-hero-main mb-4">
         Built to Standard
       </h2>

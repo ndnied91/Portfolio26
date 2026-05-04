@@ -92,9 +92,6 @@ const Navbar = () => {
             >
               {'</dn>'}
             </Link>
-            <span className="hidden md:flex">
-              <VisitorCount increment />
-            </span>
           </div>
 
           {/* Desktop links */}
@@ -114,6 +111,9 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+            <span className="hidden md:flex">
+              <VisitorCount increment />
+            </span>
           </ul>
 
           {/* Hamburger */}
