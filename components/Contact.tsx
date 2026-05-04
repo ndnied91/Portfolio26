@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { CiLocationOn } from 'react-icons/ci';
+import VisitorCount from './VisitorCount';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -85,7 +86,7 @@ const Contact = () => {
             </a>
           </div>
 
-          <div className="mt-5 flex items-center gap-1.5 text-zinc-400 text-sm">
+          <div className="mt-5 flex items-center gap-1.5 text-zinc-200 text-sm">
             <CiLocationOn size={16} color="white" />
             New Jersey
           </div>
@@ -93,7 +94,7 @@ const Contact = () => {
           {/* copy email */}
           <button
             onClick={handleCopy}
-            className="mt-1 text-xs text-zinc-500 hover:text-zinc-300 transition-all cursor-pointer"
+            className="mt-1 text-xs text-zinc-200 hover:text-zinc-300 transition-all cursor-pointer"
           >
             {copied ? '✓ Copied!' : 'danielniedzwiedzki.1@gmail.com'}
           </button>
@@ -103,20 +104,25 @@ const Contact = () => {
         <div className="relative flex flex-col bg-[#1a2035] border border-white/8 rounded-2xl p-8 overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-indigo-500 to-cyan-400" />
 
-          <h3 className="text-xs font-medium text-zinc-500 tracking-widest uppercase mb-4">
-            Beyond the Code
+          <h3 className="text-xs font-medium text-zinc-400 tracking-widest uppercase mb-4">
+            Fun facts about me!
           </h3>
 
           <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-            When I&apos;m not coding I&apos;m usually working on bikes or making
-            fresh pasta — whether it&apos;s bikes, code, or cavatelli, I believe
-            in building things from scratch with patience and precision.
+            When I&apos;m not coding, you&apos;ll usually find me{' '}
+            <span className="italic">down the shore </span>
+            (as us New Jerseyans say) with my dog, at the gym, or hanging out
+            with friends and family.
+          </p>
+          <p className="text-zinc-300 text-sm leading-relaxed">
+            I&apos;m currently looking for opportunities where I can contribute
+            strong technical skills, an eye for good UX, and a team-first
+            attitude to a group that cares about what they build.
           </p>
 
-          <p className="text-zinc-300 text-sm leading-relaxed">
-            I&apos;m currently seeking opportunities where I can bring strong
-            technical fundamentals, a sharp eye for UX, and a collaborative
-            mindset to a team that values both innovation and reliability.
+          <p className="text-zinc-300 text-sm leading-relaxed pt-2">
+            {' '}
+            Also.. go birds 🦅
           </p>
 
           <div className="mt-auto border-t border-white/6 pt-5">
@@ -133,6 +139,9 @@ const Contact = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div className="flex sm:hidden items-center justify-center pt-10">
+        <VisitorCount />
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import { BsPersonRaisedHand } from 'react-icons/bs';
 import { FaCode } from 'react-icons/fa';
 import { FaFolderOpen, FaEnvelope } from 'react-icons/fa6';
 import { IoBriefcase } from 'react-icons/io5';
+import VisitorCount from './VisitorCount';
 
 const links = [
   { text: 'About', href: '#about', icon: <BsPersonRaisedHand size={20} /> },
@@ -83,13 +84,18 @@ const Navbar = () => {
           className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
         >
           {/* Logo */}
-          <Link
-            href="#home"
-            className="logo text-3xl font-bold tracking-widest text-white hover:text-zinc-300 transition-colors rounded"
-            aria-label="Daniel Niedzwiedzki - Home"
-          >
-            {'</dn>'}
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="#home"
+              className="logo text-4xl font-bold tracking-widest text-hero-main hover-crackle-logo hover:text-accent-cyan duration-300"
+              aria-label="Daniel Niedzwiedzki - Home"
+            >
+              {'</dn>'}
+            </Link>
+            <span className="hidden md:flex">
+              <VisitorCount increment />
+            </span>
+          </div>
 
           {/* Desktop links */}
           <ul className="hidden lg:flex items-center gap-8" role="list">

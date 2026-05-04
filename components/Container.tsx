@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 
 import { fetchResume } from '@/utils/fetchResume';
+import LightHouse from './LightHouse';
 
 export default function PageClient() {
   const [activeFilter, setActiveFilter] = useState<string>('All');
@@ -29,21 +30,15 @@ export default function PageClient() {
           #0a0a0f
         `,
       }}
-      //     style={{
-      //       background: `
-      //   radial-gradient(ellipse at 50% 20%, rgba(99, 102, 241, 0.35) 0%, rgba(13, 13, 26, 0.2) 60%, transparent 100%),
-      //   radial-gradient(ellipse at 80% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 100%),
-      //   #0d0d1f
-      // `,
-      //     }}
     >
       <Hero />
       <About resume={resume} />
-      <Skills activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+      {/* <LightHouse /> */}
+      <Skills setActiveFilter={setActiveFilter} />
       <Projects activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       <Experience resume={resume} />
       <Contact />
-      <Footer resume={resume} />
+      <Footer />
     </main>
   );
 }

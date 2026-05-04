@@ -54,8 +54,9 @@ const About = ({ resume }: Props) => {
           <Image
             src="/profile.jpeg"
             alt="Daniel Niedzwiedzki"
-            width={340}
-            height={340}
+            width={500}
+            height={500}
+            style={{ width: 'auto' }}
             className="md:h-80 max-h-80 object-cover outline outline-base-300 outline-offset-4 rounded-lg"
             priority
           />

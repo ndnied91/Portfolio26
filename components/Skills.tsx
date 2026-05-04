@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { categories } from '../utils/data.js';
+import Image from 'next/image.js';
+
+import LightHouse from './LightHouse';
 
 interface SkillItem {
   name: string;
@@ -19,7 +22,7 @@ const SkillGrid = ({
   baseDelay: number;
   setActiveFilter: (filter: string) => void;
 }) => (
-  <div className="flex flex-wrap justify-center gap-4 ">
+  <div className="flex flex-wrap justify-center gap-4">
     {items.map(({ name, icon }, i) => (
       <div
         key={name}
@@ -43,7 +46,7 @@ const SkillGrid = ({
           }}
           aria-label={`Filter projects by ${name}`}
         >
-          <img
+          <Image
             src={icon}
             alt={name}
             width={28}
@@ -86,8 +89,9 @@ const Skills = ({ setActiveFilter }: Props) => {
     <section
       id="skills"
       ref={sectionRef}
-      className="flex items-center justify-center min-h-screen px-6 py-20 scroll-mt-5 md:scroll-mt-0"
+      className="flex flex-col items-center justify-center min-h-screen px-6 py-25 scroll-mt-5 md:scroll-mt-0"
     >
+      <LightHouse />
       <div className="max-w-5xl w-full flex flex-col gap-4">
         <h2
           className={`text-3xl font-bold text-center text-hero-main transition-all duration-700 ${

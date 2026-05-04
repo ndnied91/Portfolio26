@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 
 @theme {
@@ -22,16 +12,8 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* background: var(--background); */
   font-family: var(--font-outfit), sans-serif;
   font-weight: 300;
 }
@@ -77,16 +59,14 @@ button:focus {
   --color-secondary: #d4d4d8;
   /* --color-frosted-bg:  */
   /* D1D5DB */
-  --color-surface: #111827;
+  /* --color-surface: #111827;
   --color-surface-elevated: #161b27;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.2);
+  --color-border-hover: rgba(255, 255, 255, 0.2); */
   --color-accent-cyan: #22d3ee;
-  --color-accent-indigo: #6366f1;
-  --color-text-primary: #f9fafb;
-  --color-text-secondary: #d1d5db;
-  --color-text-muted: #6b7280;
-  --color-text-dim: #4b5563;
+  /* --color-accent-indigo: #6366f1; */
+
+  
 }
 
 
@@ -130,4 +110,51 @@ button:focus {
 
 .animate-blink {
   animation: blink 1s step-start infinite;
+}
+
+
+@keyframes cyan-pulse {
+  0%, 100% { color: theme('colors.cyan.400'); opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-cyan-pulse {
+  animation: cyan-pulse 1.5s ease-in-out infinite;
+}
+
+
+@keyframes neon-crackle {
+  0%   { opacity: 1; filter: brightness(1); }
+  5%   { opacity: 0.4; filter: brightness(0.5); }
+  10%  { opacity: 1; filter: brightness(1.5); }
+  15%  { opacity: 0.6; filter: brightness(0.8); }
+  20%  { opacity: 1; filter: brightness(1.2); }
+  25%  { opacity: 0.5; filter: brightness(0.6); }
+  30%  { opacity: 1; filter: brightness(1); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+.hover-crackle:hover {
+  animation: neon-crackle 0.6s ease-in-out forwards;
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.2), inset 0 0 20px rgba(34, 211, 238, 0.05);
+}
+
+.hover-crackle-logo:hover {
+  animation: neon-crackle 0.6s ease-in-out forwards;  
+}
+
+
+@keyframes wave-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.animate-wave-down {
+  animation: wave-down 0.8s ease-in-out infinite;
+}
+
+.animate-wave-down-delay {
+  animation: wave-down 0.8s ease-in-out infinite;
+  animation-delay: 0.4s;
 }

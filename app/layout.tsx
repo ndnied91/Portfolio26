@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Outfit, Fira_Code } from 'next/font/google';
+import { Outfit, Fira_Code, Comforter } from 'next/font/google';
 // import { / } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/NavBar';
@@ -16,6 +16,12 @@ const firaCode = Fira_Code({
   variable: '--font-fira',
 });
 
+const comforter = Comforter({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-comforter',
+});
+
 export const metadata: Metadata = {
   title: 'Daniel Niedzwiedzki',
   description: "Daniel's Portfolio",
@@ -29,10 +35,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${firaCode.variable} h-full antialiased w-full overflow-x-hidden`}
+      className={`${outfit.variable} ${firaCode.variable}  ${comforter.variable} h-full antialiased w-full overflow-x-hidden`}
     >
       <body className="min-h-full w-full flex flex-col overflow-x-hidden">
         <Navbar />
+
         {children}
       </body>
     </html>

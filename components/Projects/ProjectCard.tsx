@@ -39,6 +39,7 @@ const ProjectCard = ({ project, index, visible }: Props) => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${project.title} on GitHub`}
             className="flex items-center justify-center border border-white/10 rounded-lg p-2 hover:text-hero-main hover:border-white/25 transition-all shrink-0"
           >
             <FaGithub size={18} color="white" />

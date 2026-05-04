@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-
+import { useMediaQuery } from 'usehooks-ts';
 import { categories } from '@/utils/data';
 import ProjectCard from './ProjectCard';
 import { fetchProjects, Project } from '@/utils/fetchProjects';
 import { FaGithub } from 'react-icons/fa';
+import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 
 type Props = {
   activeFilter: string;
@@ -14,6 +15,10 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [projects, setProjects] = useState<Project[]>([]); //all projects
+
+  const [isShownAll, setIsShownAll] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const [shown, setShown] = useState(2); //projects shown when on mobile
 
   useEffect(() => {
     fetchProjects().then(setProjects);
@@ -43,7 +48,10 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
     return allSkills.map((skill) => (
       <button
         key={skill.name}
-        onClick={() => setActiveFilter(skill.name)}
+        onClick={() => {
+          setActiveFilter(skill.name);
+          setIsShownAll(true);
+        }}
         className={`px-4 py-1 rounded-md text-base font-bold bg-white/6 backdrop-blur-sm border border-white/10 transition-all duration-300
                ${
                  activeFilter === skill.name
@@ -57,7 +65,12 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
   };
 
   const renderCards = () => {
-    return filteredProjects.map((project, index) => (
+    const displayed =
+      isMobile && !isShownAll
+        ? filteredProjects.slice(0, shown)
+        : filteredProjects;
+
+    return displayed.map((project, index) => (
       <ProjectCard
         key={project.title}
         project={project}
@@ -71,7 +84,7 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
     <section
       id="projects"
       ref={sectionRef}
-      className="flex items-center justify-center min-h-screen px-6 scroll-mt-20 md:scroll-mt-0"
+      className="flex items-center justify-center min-h-screen px-6 scroll-mt-20 md:scroll-mt-10"
     >
       <div className="max-w-5xl w-full items-center ">
         <div
@@ -103,15 +116,36 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
           {renderCards()}
         </div>
 
-        <div className="flex justify-center mt-10">
+        {isMobile && !isShownAll && filteredProjects.length > 2 && (
+          <div className="flex justify-center mt-6">
+            <button
+              className="flex items-center justify-center gap-2 w-3/4 sm:w-auto px-6 py-3 rounded-md sm:rounded-xl  bg-hero-main text-black font-bold text-sm sm:bg-white/5 sm:text-zinc-300 sm:border sm:border-white/10 sm:rounded-xl sm:hover:bg-white/10 sm:hover:border-white/25 sm:hover:text-white transition-all duration-200"
+              onClick={() => setIsShownAll(!isShownAll)}
+            >
+              <MdKeyboardDoubleArrowDown
+                size={18}
+                className="text-black animate-wave-down"
+              />
+
+              <span className="">Expand to see more projects</span>
+
+              <MdKeyboardDoubleArrowDown
+                size={18}
+                className="text-black animate-wave-down-delay"
+              />
+            </button>
+          </div>
+        )}
+
+        <div className="flex justify-center mt-5 md:mt-0">
           <a
             href="https://github.com/ndnied91"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-hero-main border tracking border-white/10 rounded-full px-6 py-2.5 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all duration-300"
+            className="flex items-center justify-center gap-2 w-3/4 sm:w-auto px-6 py-3 rounded-md sm:rounded-full text-hero-main font-bold text-sm bg-white/6 border border-white/10 sm:border-accent-cyan hover-crackle hover:bg-white/12 hover:border-white/25 transition-all duration-300"
           >
             <FaGithub size={16} />
-            View more on GitHub
+            View all on GitHub
           </a>
         </div>
       </div>
