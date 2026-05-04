@@ -19,6 +19,7 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
   const [isShownAll, setIsShownAll] = useState(false);
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [shown, setShown] = useState(2); //projects shown when on mobile
+  const [subCategory, setSubCategory] = useState<string | null>(null);
 
   useEffect(() => {
     fetchProjects().then(setProjects);
@@ -35,6 +36,17 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (activeFilter && activeFilter !== 'All' && isMobile) {
+      const matchingCategory = categories.find((cat) =>
+        cat.items.some((item) => item.name === activeFilter),
+      );
+      if (matchingCategory) {
+        setTimeout(() => setSubCategory(matchingCategory.label), 0);
+      }
+    }
+  }, [activeFilter, isMobile]);
+
   const filteredProjects =
     activeFilter === 'All'
       ? projects
@@ -44,7 +56,7 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
 
   const allSkills = categories.flatMap((cat) => cat.items);
 
-  const renderCategories = () => {
+  const renderDesktopCategories = () => {
     return allSkills.map((skill) => (
       <button
         key={skill.name}
@@ -62,6 +74,59 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
         {skill.name}
       </button>
     ));
+  };
+
+  const renderMobileCategories = () => {
+    return (
+      <div className="flex flex-col gap-3 w-full">
+        {/* Category pills - horizontal scroll */}
+        <div className="grid grid-cols-2 gap-2 w-full ">
+          {categories.map((cat) => (
+            <button
+              key={cat.label}
+              onClick={() =>
+                setSubCategory(subCategory === cat.label ? null : cat.label)
+              }
+              className={`px-4 py-1.5 rounded-full text-sm font-bold border transition-all duration-300 
+        ${
+          subCategory === cat.label
+            ? 'border-accent-cyan text-accent-cyan bg-accent-cyan/10'
+            : 'border-white/10 text-zinc-400 bg-white/5'
+        }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Subcategory skills - animated reveal */}
+        <div
+          className={`flex flex-wrap justify-center gap-2 overflow-hidden transition-all duration-400 ease-in-out ${
+            subCategory ? 'pt-4 pb-1 max-h-48 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          {categories
+            .find((cat) => cat.label === subCategory)
+            ?.items.map((skill) => (
+              <button
+                key={skill.name}
+                onClick={() => {
+                  setActiveFilter(skill.name);
+                  setIsShownAll(true);
+                }}
+                className={`px-3 py-1 rounded-md text-sm font-bold border transition-all duration-300
+                ${
+                  activeFilter === skill.name
+                    ? 'border-white/40 text-accent-cyan bg-white/10'
+                    : 'border-white/10 text-zinc-200 bg-white/6 hover:bg-white/20'
+                }`}
+              >
+                {skill.name}
+              </button>
+            ))}
+        </div>
+      </div>
+    );
   };
 
   const renderCards = () => {
@@ -96,19 +161,32 @@ const Projects = ({ activeFilter, setActiveFilter }: Props) => {
             Recent Notable Projects
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-col md:flex-row md:w-fit md:flex md:flex-wrap md:justify-center gap-2 ">
             <button
-              onClick={() => setActiveFilter('All')}
-              className={`px-4 py-1 rounded-md text-base font-bold backdrop-blur-sm border transition-all duration-300
-    ${
-      activeFilter === 'All'
-        ? 'border-white/40 text-accent-cyan bg-white/10'
-        : 'border-white/25 text-secondary bg-white/6 hover:bg-white/20 hover:border-white/40 hover:text-white active:translate-y-0 cursor-pointer'
-    }`}
+              onClick={() => {
+                setActiveFilter('All');
+                setSubCategory(null);
+              }}
+              className={`px-4 py-1 rounded-md text-base mb-.5 md:mb-0 font-bold backdrop-blur-sm border transition-all duration-300
+                ${
+                  activeFilter === 'All'
+                    ? 'border-white/40 text-accent-cyan bg-white/10'
+                    : 'border-white/25 text-secondary bg-white/6 hover:bg-white/20 hover:border-white/40 hover:text-white active:translate-y-0 cursor-pointer'
+                }`}
             >
               All
             </button>
-            {renderCategories()}
+            {/* <div> */}
+
+            {isMobile ? (
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {renderMobileCategories()}
+                </div>
+              </div>
+            ) : (
+              renderDesktopCategories()
+            )}
           </div>
         </div>
 

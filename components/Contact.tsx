@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { CiLocationOn } from 'react-icons/ci';
 import VisitorCount from './VisitorCount';
+import Image from 'next/image';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -109,12 +110,24 @@ const Contact = () => {
             Fun facts about me!
           </h3>
 
-          <p className="text-zinc-300 text-sm leading-relaxed mb-4">
+          <div className="text-zinc-300 text-sm leading-relaxed mb-4">
             When I&apos;m not coding, you&apos;ll usually find me{' '}
             <span className="italic">down the shore </span>
-            (as us New Jerseyans say) with my dog, at the gym, or hanging out
-            with friends and family.
-          </p>
+            (as us New Jerseyans say) with{' '}
+            <span className="relative group cursor-pointer md:underline md:decoration-dotted md:italic">
+              my dogs
+              <div className="absolute left-full top-1/2 translate-y-2 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-50 w-48 sm:left-full sm:right-auto right-auto">
+                <Image
+                  src="/dogs.jpeg"
+                  alt="my dog"
+                  width={192}
+                  height={192}
+                  className="w-full h-auto object-cover rounded-xl shadow-lg border border-white/10 -z-30"
+                />
+              </div>
+            </span>
+            , at the gym, or hanging out with friends and family.
+          </div>
           <p className="text-zinc-300 text-sm leading-relaxed">
             I&apos;m currently looking for opportunities where I can contribute
             strong technical skills, an eye for good UX, and a team-first

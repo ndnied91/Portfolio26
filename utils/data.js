@@ -18,10 +18,6 @@ export const categories = [
         name: 'JavaScript',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
       },
-      // {
-      //   name: 'Redux',
-      //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
-      // },
       {
         name: 'React Native',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -68,10 +64,6 @@ export const categories = [
   {
     label: 'Databases',
     items: [
-      // {
-      //   name: 'PostgreSQL',
-      //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-      // },
       {
         name: 'MongoDB',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
@@ -97,14 +89,6 @@ export const categories = [
         name: 'GitHub',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
       },
-      // {
-      //   name: 'GitLab',
-      //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg',
-      // },
-      // {
-      //   name: 'Docker',
-      //   icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-      // },
     ],
   },
 ];

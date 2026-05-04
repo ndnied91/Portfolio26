@@ -25,6 +25,25 @@ const comforter = Comforter({
 export const metadata: Metadata = {
   title: 'Daniel Niedzwiedzki',
   description: "Daniel's Portfolio",
+  icons: {
+    icon: '/favicon.png',
+  },
+  openGraph: {
+    title: 'Daniel Niedzwiedzki — Software Engineer',
+    description:
+      'Building fast, accessible, and visually polished web experiences — one component at a time.',
+    url: 'https://danielniedzwiedzki.com',
+    siteName: 'Daniel Niedzwiedzki',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Daniel Niedzwiedzki Portfolio',
+      },
+    ],
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
