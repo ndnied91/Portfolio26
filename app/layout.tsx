@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: 'Daniel Niedzwiedzki',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://danielniedzwiedzki.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Daniel Niedzwiedzki Portfolio',
