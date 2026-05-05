@@ -23,15 +23,16 @@ const comforter = Comforter({
 });
 
 export const metadata: Metadata = {
-  title: 'Daniel Niedzwiedzki',
-  description: "Daniel's Portfolio",
+  title: 'Daniel Niedzwiedzki — Full Stack Software Engineer',
+  description:
+    'Software engineer based in New Jersey specializing in React, TypeScript, and building fast, accessible web experiences.',
   icons: {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: 'Daniel Niedzwiedzki — Software Engineer',
+    title: 'Daniel Niedzwiedzki — Full Stack Software Engineer',
     description:
-      'Building fast, accessible, and visually polished web experiences — one component at a time.',
+      'Software engineer based in New Jersey specializing in React, TypeScript, and building fast, accessible web experiences.',
     url: 'https://danielniedzwiedzki.com',
     siteName: 'Daniel Niedzwiedzki',
     images: [
