@@ -9,10 +9,17 @@ const VisitorCount = ({ increment = false }: { increment?: boolean }) => {
 
   useEffect(() => {
     const fetchCount = async () => {
+      const isPreview =
+        window.location.hostname === 'localhost' ||
+        new URLSearchParams(window.location.search).get('preview') === 'true';
+
       try {
-        const res = await fetch('/api/visitors', {
-          method: increment ? 'POST' : 'GET',
-        });
+        const res = await fetch(
+          `/api/visitors${isPreview ? '?preview=true' : ''}`,
+          {
+            method: increment ? 'POST' : 'GET',
+          },
+        );
         const data = await res.json();
         setCount(data.count);
       } catch (error) {
